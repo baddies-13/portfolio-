@@ -60,6 +60,10 @@
           <p class="lead">Les grands accomplissements sont réussis non par la force, mais par la persévérance.</p>
         </div>
 
+        <div class="animation-box">
+          <canvas id="animationCanvas"></canvas>
+        </div>
+
         <section id="about" class="about card">
           <h3>À propos</h3>
           <p>L’obscurité ne peut pas chasser l’obscurité, seule la lumière le peut. La haine ne peut pas chasser la haine, seul l’amour le peut.</p>
@@ -88,8 +92,8 @@
           <h3>Projets</h3>
           <div class="project-grid">
             <article class="project" tabindex="0">
-              <h4>Portfolio interactif</h4>
-              <p>Site personnel animé — HTML/CSS/JS. Affiche projets et CV.</p>
+              <h4>Site personnel animé</h4>
+              <p>Site personnel animé — HTML/CSS/.</p>
               <a class="btn" href="#" aria-label="Voir projet">Voir</a>
             </article>
 
@@ -129,8 +133,8 @@
               <button type="submit" class="primary">Envoyer</button>
               <button type="reset" class="ghost">Réinitialiser</button>
             </div>
-
-            <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
+            
+            <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>    
           </form>
         </section>
       </div>
@@ -158,6 +162,41 @@
     const form = document.getElementById('contactForm');
     const formMsg = document.getElement
 
+    const canvas = document.getElementById('animationCanvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+
+let particles = [];
+for (let i = 0; i < 60; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 3 + 1,
+    dx: (Math.random() - 0.5) * 1.5,
+    dy: (Math.random() - 0.5) * 1.5
+  });
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,77,166,0.7)';
+    ctx.fill();
+
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
   </script>
 </body>
 </html>

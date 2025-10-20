@@ -1,22 +1,201 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Paulina</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paulina Trinité — Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+
+  <link rel="stylesheet" href="style.css" />
+
+  <meta name="description" content="Portfolio de Paulina Trinité. CV en ligne, projets, contact." />
 </head>
 <body>
-  <div class="animation-bottom-left">
-    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/b111f7222161363.67ea769d6e921.gif" alt="Animation Portfolio" />
-  </div>
+  <header class="site-header" id="top">
+    <nav class="nav">
+      <a class="logo" href="#top">Paulina ✦</a>
+      <ul class="nav-links">
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+    </nav>
+  </header>
+
   <main class="container">
     <section class="hero">
       <div class="hero-left glass">
+        <img class="avatar" src="image/téléchargement (4).jpg" alt="Photo de Paulina" />
+        <h1 class="name">Paulina Trinité</h1>
+        <p class="role">Étudiante · Développeuse Web</p>
         <div class="contact-mini">
-          <h1><a href="index.html">Accueil</a></h1>
+          <a href="mailto:alebapaulina89@gmail.com">♥alebapaulina89@gmail.com</a>
+          <a href="https://www.instagram.com/li_naalb?igsh=ZHpsbHFmYWc4bWs%3D&utm_source=qr" target="_blank">♥Instagram</a>
+          <a href="https://snapchat.com/t/KpWpgwNT" target="_blank">♥Snapchat</a>
+        </div>
+
+        <div class="skills-compact">
+          <h4>Compétences</h4>
+          <ul>
+            <li>HTML · CSS · JS</li>
+            <li>Python · SQL</li>
+            <li>Git · Linux</li>
+          </ul>
+        </div>
+
+        <div class="lang">
+          <h4>Langues</h4>
+          <p>Français (natif) — Anglais (bon)</p>
         </div>
       </div>
+
+      <div class="hero-right">
+        <div class="intro">
+          <h2>Salut, je suis Paulina.</h2>
+          <p class="lead">Les grands accomplissements sont réussis non par la force, mais par la persévérance.</p>
+        </div>
+
+        <div class="animation-box">
+          <canvas id="animationCanvas"></canvas>
+        </div>
+
+        <section id="about" class="about card">
+          <h3>À propos</h3>
+          <p>L’obscurité ne peut pas chasser l’obscurité, seule la lumière le peut. La haine ne peut pas chasser la haine, seul l’amour le peut.</p>
+        </section>
+
+        <section id="skills" class="card">
+          <h3>Compétences détaillées</h3>
+
+          <div class="skill">
+            <label>HTML & CSS</label>
+            <div class="bar"><span style="--v:95%"></span></div>
+          </div>
+
+          <div class="skill">
+            <label>JavaScript</label>
+            <div class="bar"><span style="--v:75%"></span></div>
+          </div>
+
+          <div class="skill">
+            <label>Python</label>
+            <div class="bar"><span style="--v:70%"></span></div>
+          </div>
+        </section>
+
+        <section id="projects" class="card projects">
+          <h3>Projets</h3>
+          <div class="project-grid">
+            <article class="project" tabindex="0">
+              <h4>Lecteur de musique minimaliste</h4>
+              <p>API REST — HTML/CSS/JS.</p>
+              <a class="btn" href="file:///C:/Users/aleba/OneDrive/Documents/Lecteur%20de%20musique%20minimaliste/index.html" aria-label="Voir projet">Voir</a>
+            </article>
+
+            <article class="project" tabindex="0">
+              <h4>Mini-app météo</h4>
+              <p>API JS, fetch, responsive.</p>
+              <a class="btn" href="file:///C:/Users/aleba/OneDrive/Documents/M%C3%A9t%C3%A9o%20app/index.html">Voir</a>
+            </article>
+
+            <article class="project" tabindex="0">
+              <h4>Site Voyage</h4>
+              <p>API REST — HTML/CSS/JS.</p>
+              <a class="btn" href="file:///C:/Users/aleba/OneDrive/Documents/site%20el%C3%A8ves/Agence%20de%20Voyage/index.html">Voir</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="contact" class="card contact-card">
+          <h3>Contact</h3>
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <label for="name">Nom</label>
+              <input id="name" name="name" type="text" required maxlength="60" placeholder="Paulina" />
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="paulina@example.com" />
+            </div>
+
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" required placeholder="Écris ton message..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="primary">Envoyer</button>
+              <button type="reset" class="ghost">Réinitialiser</button>
+            </div>
+            
+            <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>    
+          </form>
+        </section>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Paulina Trinité — Portfolio</p>
+  </footer>
+
+  <script> 
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('reveal');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.card, .project').forEach((el) => observer.observe(el));
+
+    const form = document.getElementById('contactForm');
+    const formMsg = document.getElement
+
+    const canvas = document.getElementById('animationCanvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+
+let particles = [];
+for (let i = 0; i < 60; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 3 + 1,
+    dx: (Math.random() - 0.5) * 1.5,
+    dy: (Math.random() - 0.5) * 1.5
+  });
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,77,166,0.7)';
+    ctx.fill();
+
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+  </script>
 </body>
 </html>
